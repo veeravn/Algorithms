@@ -1,9 +1,5 @@
 package com.vnaidu;
 
-
-import apple.laf.JRSUIUtils;
-
-import javax.annotation.processing.SupportedSourceVersion;
 import java.util.LinkedList;
 
 public class FlattenBinaryTree {

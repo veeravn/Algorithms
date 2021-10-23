@@ -1,6 +1,5 @@
 package com.vnaidu;
 
-import org.apache.commons.lang3.time.StopWatch;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -11,8 +10,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class BarrenLandAnaysis {
-    private static final int TOTAL_HEIGHT = 18000;
-    private static final int TOTAL_WIDTH = 12000;
+    private static final int TOTAL_HEIGHT = 6000;
+    private static final int TOTAL_WIDTH = 6000;
 
     private static String[] input1 = {"48 192 351 207", "48 392 351 407", "120 52 135 547", "260 52 275 547"};
 
@@ -134,10 +133,5 @@ public class BarrenLandAnaysis {
             line = scan.nextLine();
         }
         BarrenLandAnaysis.input1 = inputs.toArray(new String[0]);
-        StopWatch timer = new StopWatch();
-        timer.start();
-        System.out.println(processInput(BarrenLandAnaysis.input1).toString());
-        timer.stop();
-        System.out.println("Time Elapsed: " + timer.getTime());
     }
 }
