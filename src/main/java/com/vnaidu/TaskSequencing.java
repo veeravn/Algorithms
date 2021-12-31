@@ -13,6 +13,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
+@SuppressWarnings("ArraysAsListWithZeroOrOneArgument")
 public class TaskSequencing {
 
     static class Vertex {
@@ -49,23 +50,10 @@ public class TaskSequencing {
         void addVertex(String label) {
             adjVertices.putIfAbsent(new Vertex(label), new ArrayList<>());
         }
-
-        void removeVertex(String label) {
-            Vertex v = new Vertex(label);
-            adjVertices.values().stream().forEach(e -> e.remove(v));
-            adjVertices.remove(new Vertex(label));
-        }
         void addEdge(String label1, String label2) {
             Vertex v1 = new Vertex(label1);
             Vertex v2 = new Vertex(label2);
             adjVertices.get(v1).add(v2);
-        }
-        void removeEdge(String label1, String label2) {
-            Vertex v1 = new Vertex(label1);
-            Vertex v2 = new Vertex(label2);
-            List<Vertex> eV1 = adjVertices.get(v1);
-            if (eV1 != null)
-                eV1.remove(v2);
         }
         List<Vertex> getAdjVertices(String label) {
             return adjVertices.get(new Vertex(label));
@@ -80,16 +68,17 @@ public class TaskSequencing {
             }
         }
 
-        void dfsUtil(Vertex v, Set<Vertex> visited) {
+        void dfsUtil(String label, Set<Vertex> visited) {
 
             // Recur for all the vertices adjacent to this
             // vertex
-            for (Vertex n : adjVertices.get(v)) {
+            Vertex v = new Vertex(label);
+            for (Vertex n : getAdjVertices(label)) {
                 if (!visited.contains(v)) {
-                    dfsUtil(n, visited);
+                    dfsUtil(n.label, visited);
                 }
             }
-            if(adjVertices.get(v).isEmpty() || visited.containsAll(adjVertices.get(v))) {
+            if(getAdjVertices(label).isEmpty() || visited.containsAll(getAdjVertices(label))) {
                 visited.add(v);
             }
         }
@@ -142,7 +131,7 @@ public class TaskSequencing {
         // traversal
         tasks.forEach(task -> {
             if(!result.contains(new Vertex(task))) {
-                graph.dfsUtil(new Vertex(task), result);
+                graph.dfsUtil(task, result);
             }
         });
         for(Vertex res : result) {
