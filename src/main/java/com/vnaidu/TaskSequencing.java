@@ -5,7 +5,9 @@ import org.apache.commons.lang3.time.StopWatch;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -86,11 +88,9 @@ public class TaskSequencing {
     public static List<String> taskSequence(List<String> tasks, Map<String, List<String>> deps) {
         StopWatch graph = new StopWatch();
         List<String> result = new ArrayList<>();
-
+        graph.start();
         do {
             List<String> rem = new ArrayList<>();
-            System.out.println("Unprocessed Tasks: "+tasks);
-            System.out.println("Processed Tasks: "+result);
             for(String task : tasks) {
                 if( deps.get(task) != null) {
                     List<String> strings = deps.get(task);
@@ -125,7 +125,6 @@ public class TaskSequencing {
         Graph graph = new Graph(new HashMap<>());
         tasks.forEach(graph::addVertex);
         deps.forEach((key, value) -> value.forEach(dep -> graph.addEdge(key, dep)));
-        Graph.printGraph(graph);
         // Call the recursive helper
         // function to print DFS
         // traversal
@@ -140,6 +139,22 @@ public class TaskSequencing {
         graphsw.stop();
         System.out.println("Time: " + graphsw.getTime());
         return result2;
+    }
+    public static Set<String> taskSequence(String tasks) {
+        List<String> depList = Arrays.asList(tasks.split(","));
+        Set<String> taskList = new HashSet<>();
+        Map<String, List<String>> deps = new HashMap<>();
+        depList.forEach(dep -> {
+            String[] tnames = dep.split(":");
+            taskList.addAll(Arrays.asList(tnames));
+            if(deps.containsKey(tnames[0])) {
+                deps.get(tnames[0]).add(tnames[1]);
+            } else {
+                deps.put(tnames[0], new ArrayList<>(Collections.singleton(tnames[1])));
+            }
+        });
+
+        return taskSequenceGraph(new ArrayList<>(taskList), deps);
     }
     public static void main(String[] args) {
         List<String> tasks = Arrays.asList("T1", "T3", "Tm", "Tn", "T2","T4", "T5", "T6","T7", "T9", "T10");
@@ -168,6 +183,9 @@ public class TaskSequencing {
         Collection<String> result = taskSequenceGraph(tasks, deps);
         System.out.println(result.toString());
         result = taskSequence(tasks, deps);
+        System.out.println(result.toString());
+
+        result = taskSequence("t1:tm,t1:t3,t4:tn,t4:t3,tm:t2,tn:t1,t5:t4,t6:t4,t7:t6,t9:t6,t10:t9");
         System.out.println(result.toString());
     }
 }
