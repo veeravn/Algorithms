@@ -157,12 +157,12 @@ public class TaskSequencing {
         return taskSequenceGraph(new ArrayList<>(taskList), deps);
     }
     public static void main(String[] args) {
-        List<String> tasks = Arrays.asList("T1", "T3", "Tm", "Tn", "T2","T4", "T5", "T6","T7", "T9", "T10");
+        List<String> tasks = Arrays.asList("T1", "T3", "T8", "T11", "T2","T4", "T5", "T6","T7", "T9", "T10");
         Map<String, List<String>> deps = new HashMap<>();
-        deps.put("T1", Arrays.asList("Tm", "T3"));
-        deps.put("T4", Arrays.asList("Tn", "T3"));
-        deps.put("Tm", Arrays.asList("T2"));
-        deps.put("Tn", Arrays.asList("T1"));
+        deps.put("T1", Arrays.asList("T3", "T8"));
+        deps.put("T4", Arrays.asList("T11", "T3"));
+        deps.put("T8", Arrays.asList("T2"));
+        deps.put("T11", Arrays.asList("T1"));
         deps.put("T5", Arrays.asList("T4"));
         deps.put("T6", Arrays.asList("T4"));
         deps.put("T7", Arrays.asList("T6"));
@@ -185,7 +185,7 @@ public class TaskSequencing {
         result = taskSequence(tasks, deps);
         System.out.println(result.toString());
 
-        result = taskSequence("t1:tm,t1:t3,t4:tn,t4:t3,tm:t2,tn:t1,t5:t4,t6:t4,t7:t6,t9:t6,t10:t9");
+        result = taskSequence("t1:t3,t1:t8,t4:t11,t4:t3,t8:t2,t11:t1,t5:t4,t6:t4,t7:t6,t9:t6,t10:t9");
         System.out.println(result.toString());
     }
 }
