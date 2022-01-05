@@ -2,6 +2,9 @@ package com.vnaidu;
 
 
 import java.time.LocalDateTime;
+import java.time.Month;
+import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,7 +17,7 @@ import java.util.Map;
  */
 public class TrailerScheduling {
 
-    private static class Trailer {
+    static class Trailer {
         private String id;
         private int doorNum;
         private LocalDateTime arrivalDate;
@@ -76,21 +79,120 @@ public class TrailerScheduling {
         LocalDateTime busiest = LocalDateTime.now();
         for(LocalDateTime dateTime = earliest;
             dateTime.isBefore(latest) || !dateTime.isEqual(latest);
-            dateTime = dateTime.plusMinutes(5)) {
+            dateTime = dateTime.plusMinutes(2)) {
             for (Trailer trailer : trailerList) {
                 LocalDateTime endTime = trailer.getArrivalDate().plusMinutes(trailer.getUnloadTime());
-                if (dateTime.isEqual(trailer.getArrivalDate())) {
+                if (dateTime.isEqual(trailer.getArrivalDate()) || (trailer.getArrivalDate().isBefore(dateTime) && endTime.isAfter(dateTime))) {
                     doorStatus.put(trailer.getDoorNum(), Boolean.TRUE);
                 } else if (doorStatus.get(trailer.getDoorNum()) && dateTime.isAfter(endTime)) {
                     doorStatus.put(trailer.getDoorNum(), Boolean.FALSE);
                 }
-                long doorsUsed = doorStatus.entrySet().stream().filter(Map.Entry::getValue).count();
-                if(maxDoorsUsed < doorsUsed) {
-                    maxDoorsUsed = doorsUsed;
-                    busiest = dateTime;
-                }
+            }
+
+            long doorsUsed = doorStatus.entrySet().stream().filter(Map.Entry::getValue).count();
+            if(doorsUsed >= maxDoorsUsed) {
+                maxDoorsUsed = doorsUsed;
+                busiest = dateTime;
+                System.out.println(busiest.toString());
+                System.out.println(doorStatus.toString());
             }
         }
-        return busiest.toString();
+        return busiest.atZone(ZoneId.systemDefault()).toString();
+    }
+
+    public static void main(String[] args) {
+        List<TrailerScheduling.Trailer> trailerList = new ArrayList<>();
+        TrailerScheduling.Trailer t = new TrailerScheduling.Trailer();
+        t.setId("A");
+        t.setDoorNum(1);
+        t.setArrivalDate(LocalDateTime.of(2021, Month.JANUARY,5,8,0));
+        t.setUnloadTime(12);
+        trailerList.add(t);
+        t = new TrailerScheduling.Trailer();
+        t.setId("B");
+        t.setDoorNum(2);
+        t.setArrivalDate(LocalDateTime.of(2021, Month.JANUARY,5,8,10));
+        t.setUnloadTime(20);
+        trailerList.add(t);
+        t = new TrailerScheduling.Trailer();
+        t.setId("C");
+        t.setDoorNum(3);
+        t.setArrivalDate(LocalDateTime.of(2021, Month.JANUARY,5,8,10));
+        t.setUnloadTime(25);
+        trailerList.add(t);
+        t = new TrailerScheduling.Trailer();
+        t.setId("D");
+        t.setDoorNum(4);
+        t.setArrivalDate(LocalDateTime.of(2021, Month.JANUARY,5,8,15));
+        t.setUnloadTime(20);
+        trailerList.add(t);
+        t = new TrailerScheduling.Trailer();
+        t.setId("E");
+        t.setDoorNum(5);
+        t.setArrivalDate(LocalDateTime.of(2021, Month.JANUARY,5,8,15));
+        t.setUnloadTime(30);
+        trailerList.add(t);
+        t = new TrailerScheduling.Trailer();
+        t.setId("F");
+        t.setDoorNum(1);
+        t.setArrivalDate(LocalDateTime.of(2021, Month.JANUARY,5,8,36));
+        t.setUnloadTime(20);
+        trailerList.add(t);
+        t = new TrailerScheduling.Trailer();
+        t.setId("G");
+        t.setDoorNum(2);
+        t.setArrivalDate(LocalDateTime.of(2021, Month.JANUARY,5,8,32));
+        t.setUnloadTime(15);
+        trailerList.add(t);
+        t = new TrailerScheduling.Trailer();
+        t.setId("H");
+        t.setDoorNum(3);
+        t.setArrivalDate(LocalDateTime.of(2021, Month.JANUARY,5,8,36));
+        t.setUnloadTime(20);
+        trailerList.add(t);
+        t = new TrailerScheduling.Trailer();
+        t.setId("I");
+        t.setDoorNum(4);
+        t.setArrivalDate(LocalDateTime.of(2021, Month.JANUARY,5,8,38));
+        t.setUnloadTime(15);
+        trailerList.add(t);
+        t = new TrailerScheduling.Trailer();
+        t.setId("J");
+        t.setDoorNum(5);
+        t.setArrivalDate(LocalDateTime.of(2021, Month.JANUARY,5,8,50));
+        t.setUnloadTime(20);
+        trailerList.add(t);
+        t = new TrailerScheduling.Trailer();
+        t.setId("K");
+        t.setDoorNum(2);
+        t.setArrivalDate(LocalDateTime.of(2021, Month.JANUARY,5,8,57));
+        t.setUnloadTime(30);
+        trailerList.add(t);
+        t = new TrailerScheduling.Trailer();
+        t.setId("L");
+        t.setDoorNum(1);
+        t.setArrivalDate(LocalDateTime.of(2021, Month.JANUARY,5,8,59));
+        t.setUnloadTime(20);
+        trailerList.add(t);
+        t = new TrailerScheduling.Trailer();
+        t.setId("M");
+        t.setDoorNum(3);
+        t.setArrivalDate(LocalDateTime.of(2021, Month.JANUARY,5,9,0));
+        t.setUnloadTime(10);
+        trailerList.add(t);
+        t = new TrailerScheduling.Trailer();
+        t.setId("N");
+        t.setDoorNum(4);
+        t.setArrivalDate(LocalDateTime.of(2021, Month.JANUARY,5,9,0));
+        t.setUnloadTime(20);
+        trailerList.add(t);
+        t = new TrailerScheduling.Trailer();
+        t.setId("O");
+        t.setDoorNum(5);
+        t.setArrivalDate(LocalDateTime.of(2021, Month.JANUARY,5,9,12));
+        t.setUnloadTime(30);
+        trailerList.add(t);
+
+        System.out.println(getBusiestTime(trailerList));
     }
 }
