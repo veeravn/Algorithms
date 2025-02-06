@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class FlattenBinaryTree {
 
-    static class TreeNode {
+    public static class TreeNode {
 
         int val;
         TreeNode left;
