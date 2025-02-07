@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
-public class Subfiles {
+public class Subfiles extends Base {
 
     int total;
     public Subfiles() {
@@ -41,7 +41,7 @@ public class Subfiles {
         Subfiles subfiles = new Subfiles();
         int minTime = subfiles.minimumTime(4, Arrays.asList(4, 8, 6, 12));
 
-        System.out.println(minTime);
+        logger.info(minTime + "");
     }
     // METHOD SIGNATURE ENDS
 

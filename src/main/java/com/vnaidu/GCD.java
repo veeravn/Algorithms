@@ -1,6 +1,6 @@
 package com.vnaidu;
 
-public class GCD {
+public class GCD extends Base {
 
     static int gcd(int a, int b) {
         if (a == 0)
@@ -20,6 +20,6 @@ public class GCD {
     {
         int[] arr = new int[] { 2, 4, 6, 8, 16 };
         int n = arr.length;
-        System.out.println(findGCD(arr, n));
+        logger.info(String.valueOf(findGCD(arr, n)));
     }
 }

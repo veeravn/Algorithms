@@ -20,7 +20,7 @@ Constraints:
 1 <= haystack.length, needle.length <= 104
 haystack and needle consist of only lowercase English characters.
  */
-public class NeedleHaystack {
+public class NeedleHaystack extends Base {
 
     public int strStr(String haystack, String needle) {
         for(int i = 0, j = needle.length(); j<=haystack.length(); i++,j++){

@@ -2,7 +2,7 @@ package com.vnaidu;
 
 import java.util.LinkedList;
 
-public class FordFulkersonAlgorithm {
+public class FordFulkersonAlgorithm extends Base {
 
     // Java program for implementation of Ford Fulkerson algorithm for Max Flow
     private static final int V = 6;    //Number of vertices in graph
@@ -114,7 +114,7 @@ public class FordFulkersonAlgorithm {
         };
         FordFulkersonAlgorithm m = new FordFulkersonAlgorithm();
 
-        System.out.println("The maximum possible flow is " +
+        logger.info("The maximum possible flow is " +
                 m.fordFulkerson(graph, 0, 5));
 
     }

@@ -3,7 +3,7 @@ package com.vnaidu;
 import java.util.Arrays;
 import java.util.stream.IntStream;
 
-public class ProductOfArray {
+public class ProductOfArray extends Base {
 
     public static int[] productExceptSelf(int[] nums) {
         int n = nums.length;
@@ -39,6 +39,6 @@ public class ProductOfArray {
         Arrays.stream(res).forEach(i -> builder.append(i).append(", "));
         int replace = builder.lastIndexOf(", ");
         builder.replace(replace, builder.length()-1, "]");
-        System.out.println(builder);
+        logger.info(builder.toString());
     }
 }

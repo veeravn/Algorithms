@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Set;
 
-public class StoreToStoreRouting {
+public class StoreToStoreRouting extends Base{
 
     static class Store {
 
@@ -68,7 +68,7 @@ public class StoreToStoreRouting {
         store3.addNeighbor(store4);
         store4.addNeighbor(store5);
 
-        System.out.println(canReach(store1, 5)); // Output: true
-        System.out.println(canReach(store1, 6)); // Output: false
+        logger.info(Boolean.toString(canReach(store1, 5))); // Output: true
+        logger.info(Boolean.toString(canReach(store1, 6))); // Output: false
     }
 }

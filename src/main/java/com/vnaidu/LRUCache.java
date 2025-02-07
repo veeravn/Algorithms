@@ -4,7 +4,7 @@ import java.util.HashMap;
 //import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class LRUCache {
+public class LRUCache extends Base{
 //    private final int capacity;
 //    private final Map<Integer, Integer> cache;
 
@@ -68,7 +68,7 @@ public class LRUCache {
             System.out.print("(" + current.key + ": " + current.value + ") ");
             current = current.next;
         }
-        System.out.println();
+        logger.info("");
     }
 
 //    public LRUCache(int capacity) {
@@ -90,7 +90,7 @@ public class LRUCache {
 //    }
 //
 //    public void display() {
-//        System.out.println(cache);
+//        logger.info(cache);
 //    }
 
     public static void main(String[] args) {
@@ -98,9 +98,9 @@ public class LRUCache {
         lru.put(1, 10);
         lru.put(2, 20);
         lru.put(3, 30);
-        System.out.println(lru.get(1)); // Access key 1, should return 10
+        logger.info(lru.get(1) + ""); // Access key 1, should return 10
         lru.put(4, 40); // This should evict key 2 (LRU policy)
-        System.out.println(lru.get(2)); // Should return -1 (not found)
+        logger.info(lru.get(2) + ""); // Should return -1 (not found)
         lru.display();
     }
 }

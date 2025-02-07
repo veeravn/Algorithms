@@ -1,7 +1,7 @@
 package com.vnaidu;
 
 
-public class ReverseKNodes {
+public class ReverseKNodes extends Base {
     public static class ListNode {
         int val;
         ListNode next;

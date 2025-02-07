@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class PrisonCell {
+public class PrisonCell extends Base {
 
     public List<Integer> cellCompete(int[] states, int days) {
 
@@ -53,7 +53,7 @@ public class PrisonCell {
             }
             states = temp.clone();
         }
-        //System.out.println(map.size());
+        //logger.info(map.size());
         if(map.size()==1) {
             return Arrays.stream(map.get(1)).boxed().collect(Collectors.toList());//if only 1 solution and x%1 is X
         }
@@ -71,6 +71,6 @@ public class PrisonCell {
 
         PrisonCell states = new PrisonCell();
 
-        System.out.println(states.cellCompete(new int[]{1,1,1,0,1,1,1,1}, 2).toString());
+        logger.info(states.cellCompete(new int[]{1,1,1,0,1,1,1,1}, 2).toString());
     }
 }

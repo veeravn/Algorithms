@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class RemoveObstacles {
+public class RemoveObstacles extends Base {
 
 // Define a new data structure class
      class Node {
@@ -55,7 +55,7 @@ public class RemoveObstacles {
                       q.add(new Node(top.x, top.y + 1, top.dist + 1));
                   }
               }
-              System.out.println(q.toString());
+              logger.info(q.toString());
           }
           return -1;
      }
@@ -70,6 +70,6 @@ public class RemoveObstacles {
 
         int minTime = obstacles.shortestDistance(5,4,lot);
 
-        System.out.println(minTime);
+        logger.info(minTime + "");
     }
 }

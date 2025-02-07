@@ -33,7 +33,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ReverseWords {
+public class ReverseWords extends Base {
 
     public static String reverseWords(String s) {
         String trimmed = s.trim();
@@ -48,6 +48,6 @@ public class ReverseWords {
     }
 
     public static void main(String[] args) {
-        System.out.println(reverseWords("a good   example"));
+        logger.info(reverseWords("a good   example"));
     }
 }

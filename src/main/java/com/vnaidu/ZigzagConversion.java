@@ -1,6 +1,6 @@
 package com.vnaidu;
 
-public class ZigzagConversion {
+public class ZigzagConversion extends Base {
 
     public static String convert(String s, int numRows) {
         if (numRows == 1) {
@@ -23,6 +23,6 @@ public class ZigzagConversion {
     }
 
     public static void main (String[] args) {
-        System.out.println(convert("PAYPALISHIRING", 3));
+        logger.info(convert("PAYPALISHIRING", 3));
     }
 }

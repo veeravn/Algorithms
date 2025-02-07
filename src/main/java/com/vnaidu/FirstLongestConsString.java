@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-public class FirstLongestConsString {
+public class FirstLongestConsString extends Base {
 
 
     public static String firstLongestConsecutiveSubString(String s) {
@@ -60,6 +60,6 @@ public class FirstLongestConsString {
     public static void main(String[] args) {
         String result = FirstLongestConsString.firstLongestConsecutiveSubString("aabbbbccddbbbb");
 
-        System.out.println(result);
+        logger.info(result);
     }
 }

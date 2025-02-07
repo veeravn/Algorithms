@@ -1,10 +1,8 @@
 package com.vnaidu;
 
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
-public class AddSpacesToString {
+
+public class AddSpacesToString extends Base {
 
     public static String addSpaces(String s, int[] spaces) {
         char[] res = new char[s.length()+spaces.length];
@@ -21,7 +19,7 @@ public class AddSpacesToString {
     }
 
     public static void main(String[] args) {
-        System.out.println(AddSpacesToString.addSpaces("LeetcodeHelpsMeLearn", new int[]{8,13,15}));
+        logger.info(AddSpacesToString.addSpaces("LeetcodeHelpsMeLearn", new int[]{8,13,15}));
     }
 
 }

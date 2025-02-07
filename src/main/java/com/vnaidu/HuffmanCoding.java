@@ -6,7 +6,7 @@ import java.util.PriorityQueue;
 
 // node class is the basic structure
 // of each node present in the Huffman - tree.
-class HuffmanNode {
+class HuffmanNode extends Base {
 
     int data;
     char c;
@@ -27,7 +27,7 @@ class MyComparator implements Comparator<HuffmanNode> {
     }
 }
 
-public class HuffmanCoding {
+public class HuffmanCoding extends Base {
 
     // recursive function to print the
     // huffman-code through the tree traversal.
@@ -44,7 +44,7 @@ public class HuffmanCoding {
                 && Character.isLetter(root.c)) {
 
             // c is the character in the node
-            System.out.println(root.c + ":" + s);
+            logger.info(root.c + ":" + s);
 
             return;
         }

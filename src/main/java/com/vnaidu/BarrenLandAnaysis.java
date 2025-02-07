@@ -9,7 +9,7 @@ import java.util.Deque;
 import java.util.List;
 import java.util.Scanner;
 
-public class BarrenLandAnaysis {
+public class BarrenLandAnaysis extends Base {
     private static final int TOTAL_HEIGHT = 6000;
     private static final int TOTAL_WIDTH = 6000;
 
@@ -123,12 +123,12 @@ public class BarrenLandAnaysis {
     public static void main(String[] args) {
         buildMatrix(matrix);
         Scanner scan = new Scanner(System.in);
-        System.out.println("Enter the coordinates for the bottom left corner and the top right corner of a rectangle\nThe coordinates need to be added in the following format: x1 y1 x2 y2 with single spaces separating the numbers");
+        logger.info("Enter the coordinates for the bottom left corner and the top right corner of a rectangle\nThe coordinates need to be added in the following format: x1 y1 x2 y2 with single spaces separating the numbers");
         String line = scan.nextLine();
         List<String> inputs = new ArrayList<>();
         while(!line.isEmpty()) {
             inputs.add(line);
-            System.out.println("Enter the coordinates for the bottom left corner and the top right corner of a rectangle or an empty line if no more inputs are needed.");
+            logger.info("Enter the coordinates for the bottom left corner and the top right corner of a rectangle or an empty line if no more inputs are needed.");
 
             line = scan.nextLine();
         }

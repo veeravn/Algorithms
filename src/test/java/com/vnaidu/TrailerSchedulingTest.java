@@ -107,7 +107,7 @@ t = new TrailerScheduling.Trailer();
         t.setUnloadTime(30);
         trailerList.add(t);
         Assert.assertEquals("2021-01-05T09:08-06:00[America/Chicago]", TrailerScheduling.getBusiestTime(trailerList));
-        System.out.println(TrailerScheduling.getBusiestTime(trailerList));
+        logger.info(TrailerScheduling.getBusiestTime(trailerList));
     }
 
 }

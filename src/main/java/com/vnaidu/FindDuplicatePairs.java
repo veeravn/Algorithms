@@ -3,7 +3,7 @@ package com.vnaidu;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class FindDuplicatePairs {
+public class FindDuplicatePairs extends Base{
 
     public static List<List<Integer>> findDuplicatePairs(List<List<Integer>> pairs) {
         // Use a map to count occurrences of each normalized pair
@@ -32,8 +32,8 @@ public class FindDuplicatePairs {
                 Arrays.asList(1, 2), Arrays.asList(3, 4)
         );
 
-        System.out.println(findDuplicatePairs(pairs1)); // Output: [[2, 3], [1, 2]]
-        System.out.println(findDuplicatePairs(pairs2)); // Output: [[1, 3]]
-        System.out.println(findDuplicatePairs(pairs3)); // Output: []
+        logger.info(findDuplicatePairs(pairs1).toString()); // Output: [[2, 3], [1, 2]]
+        logger.info(findDuplicatePairs(pairs2).toString()); // Output: [[1, 3]]
+        logger.info(findDuplicatePairs(pairs3).toString()); // Output: []
     }
 }

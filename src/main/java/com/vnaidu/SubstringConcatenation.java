@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class SubstringConcatenation {
+public class SubstringConcatenation extends Base {
     public static List<Integer> findSubstring(String s, String[] words) {
         int N = s.length();
         int M = words.length == 0 ? 0 : words[0].length();
@@ -61,6 +61,6 @@ public class SubstringConcatenation {
     public static void main(String[] args) {
         String s = "barfoothefoobarman";
         String[] words = {"foo", "bar"};
-        System.out.println(findSubstring(s, words)); // Output: [0, 9]
+        logger.info(findSubstring(s, words).toString()); // Output: [0, 9]
     }
 }

@@ -15,7 +15,7 @@ import java.util.Map;
  * for a given day we are given a list of trailers, their assigned doors and their arrival time and the time to unload.
  * We need to find the time of the day when unloading is busiest.  What's the best way to compute the busiest time.
  */
-public class TrailerScheduling {
+public class TrailerScheduling extends Base {
 
     static class Trailer {
         private String id;
@@ -93,8 +93,8 @@ public class TrailerScheduling {
             if(doorsUsed >= maxDoorsUsed) {
                 maxDoorsUsed = doorsUsed;
                 busiest = dateTime;
-                System.out.println(busiest.toString());
-                System.out.println(doorStatus.toString());
+                logger.info(busiest.toString());
+                logger.info(doorStatus.toString());
             }
         }
         return busiest.atZone(ZoneId.systemDefault()).toString();
@@ -193,6 +193,6 @@ public class TrailerScheduling {
         t.setUnloadTime(30);
         trailerList.add(t);
 
-        System.out.println(getBusiestTime(trailerList));
+        logger.info(getBusiestTime(trailerList));
     }
 }

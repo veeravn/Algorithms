@@ -82,7 +82,7 @@ m: number of columns in the input image
 import java.util.ArrayList;
 import java.util.List;
 
-public class FindRectangle {
+public class FindRectangle extends Base{
 
     public static void main(String[] argv) {
         int[][] image1 = {
@@ -112,10 +112,10 @@ public class FindRectangle {
                 {1, 1, 1, 1, 1},
         };
 
-        System.out.println(findRectangle(image1));
-        System.out.println(findRectangle(image2));
-        System.out.println(findRectangle(image3));
-        System.out.println(findRectangle(image4));
+        logger.info(findRectangle(image1));
+        logger.info(findRectangle(image2));
+        logger.info(findRectangle(image3));
+        logger.info(findRectangle(image4));
 
     }
 

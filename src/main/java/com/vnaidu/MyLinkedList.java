@@ -1,6 +1,6 @@
 package com.vnaidu;
 
-public class MyLinkedList {
+public class MyLinkedList extends Base {
     Node head; // head of the list
 
     /* Linked List node */
@@ -20,7 +20,7 @@ public class MyLinkedList {
             return;
         printNthFromLast(head.next, n);
         if (++i == n)
-            System.out.println(head.data);
+            logger.info(head.data + "");
     }
 
     /* Inserts a new Node at front of the list. */

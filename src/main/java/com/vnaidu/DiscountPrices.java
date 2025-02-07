@@ -1,6 +1,6 @@
 package com.vnaidu;
 
-public class DiscountPrices {
+public class DiscountPrices extends Base {
 
     public String discountPrices(String sentence, int discount) {
         String[] x = sentence.split(" ");

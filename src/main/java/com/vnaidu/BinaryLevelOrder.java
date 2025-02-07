@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.vnaidu.FlattenBinaryTree.TreeNode;
 
-public class BinaryLevelOrder {
+public class BinaryLevelOrder extends Base {
 
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> ans = new ArrayList<>();

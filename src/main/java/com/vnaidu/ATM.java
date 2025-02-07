@@ -2,7 +2,7 @@ package com.vnaidu;
 
 import java.util.Arrays;
 
-public class ATM {
+public class ATM extends Base {
 
     long[] denoms = {20, 50, 100, 200, 500};
     long[] stores;

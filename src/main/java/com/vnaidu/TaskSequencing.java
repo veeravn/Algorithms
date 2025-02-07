@@ -16,7 +16,7 @@ import java.util.Optional;
 import java.util.Set;
 
 @SuppressWarnings("ArraysAsListWithZeroOrOneArgument")
-public class TaskSequencing {
+public class TaskSequencing extends Base {
 
     static class Vertex {
         String label;
@@ -62,11 +62,10 @@ public class TaskSequencing {
         }
         public static void printGraph(Graph graph)  {
 
-            System.out.println("The contents of the graph:");
+            logger.info("The contents of the graph:");
             for (Map.Entry<Vertex, List<Vertex>> edge : graph.getAdjVertices().entrySet()) {
-                System.out.print("Vertex:" + edge.getKey().label);
-                edge.getValue().forEach(dep -> System.out.print(" ==> " + dep.label));
-                System.out.println();
+                logger.info("Vertex:" + edge.getKey().label);
+                edge.getValue().forEach(dep -> logger.info(" ==> " + dep.label));
             }
         }
 
@@ -113,7 +112,7 @@ public class TaskSequencing {
         }
         while(!tasks.isEmpty());
         graph.stop();
-        System.out.println("Time: " + graph.getTime());
+        logger.info("Time: " + graph.getTime());
         return result;
     }
 
@@ -137,7 +136,7 @@ public class TaskSequencing {
             result2.add(res.label);
         }
         graphsw.stop();
-        System.out.println("Time: " + graphsw.getTime());
+        logger.info("Time: " + graphsw.getTime());
         return result2;
     }
     public static Set<String> taskSequence(String tasks) {
@@ -181,11 +180,11 @@ public class TaskSequencing {
             }
         });
         Collection<String> result = taskSequenceGraph(tasks, deps);
-        System.out.println(result.toString());
+        logger.info(result.toString());
         result = taskSequence(tasks, deps);
-        System.out.println(result.toString());
+        logger.info(result.toString());
 
         result = taskSequence("t1:t3,t1:t8,t4:t11,t4:t3,t8:t2,t11:t1,t5:t4,t6:t4,t7:t6,t9:t6,t10:t9");
-        System.out.println(result.toString());
+        logger.info(result.toString());
     }
 }

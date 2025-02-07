@@ -1,6 +1,6 @@
 package com.vnaidu;
 
-public class MaxStockProfits {
+public class MaxStockProfits extends Base {
 
     public static int maxProfit(int[] prices) {
         int lowest = prices[0];
@@ -13,6 +13,6 @@ public class MaxStockProfits {
     }
 
     public static void main (String[] args) {
-        System.out.println(maxProfit(new int[] {7,1,5,3,6,4}));
+        logger.info(String.valueOf(maxProfit(new int[] {7,1,5,3,6,4})));
     }
 }

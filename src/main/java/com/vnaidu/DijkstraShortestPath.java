@@ -3,7 +3,7 @@ package com.vnaidu;
 // A Java program for Dijkstra's single source shortest path algorithm.
 // The program is for adjacency matrix representation of the graph
 
-public class DijkstraShortestPath {
+public class DijkstraShortestPath extends Base {
 
     // A utility function to find the vertex with minimum distance value,
     // from the set of vertices not yet included in shortest path tree
@@ -25,9 +25,9 @@ public class DijkstraShortestPath {
 
     // A utility function to print the constructed distance array
     private void printSolution(int[] dist) {
-        System.out.println("Vertex Distance from Source");
+        logger.info("Vertex Distance from Source");
         for (int i = 0; i < V; i++)
-            System.out.println(i + " tt " + dist[i]);
+            logger.info(i + " tt " + dist[i]);
     }
 
     // Funtion that implements Dijkstra's single source shortest path

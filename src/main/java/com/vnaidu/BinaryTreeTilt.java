@@ -2,7 +2,7 @@ package com.vnaidu;
 
 import java.util.Optional;
 
-public class BinaryTreeTilt {
+public class BinaryTreeTilt extends Base {
 
     int count = 0;
 
@@ -33,6 +33,6 @@ public class BinaryTreeTilt {
         root.left.left = new BTNode(4);
         root.right.left = new BTNode(5);
 
-        System.out.println(tilt.findTilt(root));
+        logger.info(tilt.findTilt(root) + "");
     }
 }

@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Set;
 
-public class DPQ {
+public class DPQ extends Base {
 
     private int[] dist;
     private Set<Integer> settled;
@@ -107,9 +107,9 @@ public class DPQ {
 
         // Print the shortest path to all the nodes
         // from the source node
-        System.out.println("The shorted path from node :");
+        logger.info("The shorted path from node :");
         for (int i = 0; i < dpq.dist.length; i++)
-            System.out.println(source + " to " + i + " is "
+            logger.info(source + " to " + i + " is "
                     + dpq.dist[i]);
     }
 }

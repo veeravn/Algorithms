@@ -2,7 +2,7 @@ package com.vnaidu;
 
 import java.util.HashMap;
 
-public class ReplaceElementsInArray {
+public class ReplaceElementsInArray extends Base {
 
     public int[] arrayChange(int[] A, int[][] op) {
         HashMap<Integer,Integer> store= new HashMap<>();

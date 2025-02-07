@@ -1,6 +1,6 @@
 package com.vnaidu;
 
-public class BinaryTreeRightView {
+public class BinaryTreeRightView extends Base {
 
     private BTNode root;
     private static int maxLevel = 0;
@@ -14,7 +14,7 @@ public class BinaryTreeRightView {
 
         // If this is the first node of its level
         if (maxLevel < level) {
-            System.out.println(" " + node.data);
+            logger.info(" " + node.data);
             maxLevel = level;
         }
 

@@ -1,6 +1,6 @@
 package com.vnaidu;
 
-public class SetMatrixZeroes {
+public class SetMatrixZeroes extends Base {
 
     public void setZeroes(int[][] matrix) {
         if (matrix.length == 0)

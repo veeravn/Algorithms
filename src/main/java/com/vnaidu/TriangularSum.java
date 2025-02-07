@@ -2,7 +2,7 @@ package com.vnaidu;
 
 import java.util.stream.IntStream;
 
-public class TriangularSum {
+public class TriangularSum extends Base {
 
     /** Algorithm
      *  1. Traverse the array from i = 0 to length and replace nums[i] with nums[i] + nums[i+1]

@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class GroupAnagrams {
+public class GroupAnagrams extends Base {
 
     public static List<List<String>> groupAnagrams(String[] strs) {
         if (strs.length > 0) {

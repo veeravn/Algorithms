@@ -1,6 +1,6 @@
 package com.vnaidu;
 
-public class Land {
+public class Land extends Base {
 
     private int x;
     private int y;

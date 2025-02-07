@@ -1,6 +1,6 @@
 package com.vnaidu;
 
-public class WildCardMatching {
+public class WildCardMatching extends Base {
     public static boolean isMatch(String s, String p) {
 
         int rows= s.length();
@@ -29,6 +29,6 @@ public class WildCardMatching {
     }
 
     public static void main(String[] args) {
-        System.out.println(isMatch("aa", "a*"));
+        logger.info(String.valueOf(isMatch("aa", "a*")));
     }
 }

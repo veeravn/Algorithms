@@ -2,7 +2,7 @@ package com.vnaidu;
 
 import java.util.LinkedList;
 
-public class FlattenBinaryTree {
+public class FlattenBinaryTree extends Base {
 
     public static class TreeNode {
 
@@ -65,7 +65,7 @@ public class FlattenBinaryTree {
 
     public void printTree(TreeNode root) {
         if(root == null ) return;
-        System.out.println(root.val);
+        logger.info(String.valueOf(root.val));
 //        printTree(root.left);
         printTree(root.right);
     }

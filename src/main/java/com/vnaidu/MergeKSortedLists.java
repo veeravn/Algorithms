@@ -6,7 +6,7 @@ import java.util.Objects;
 import java.util.PriorityQueue;
 
 import static com.vnaidu.ReverseKNodes.ListNode;
-public class MergeKSortedLists {
+public class MergeKSortedLists extends Base {
 
     public ListNode mergeKLists(List<ListNode> lists) {
         if (lists==null|| lists.isEmpty()) return null;

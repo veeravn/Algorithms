@@ -3,7 +3,7 @@ package com.vnaidu;
 import java.util.Arrays;
 import java.util.stream.IntStream;
 
-public class Candy {
+public class Candy extends Base {
 
     public int candy(int[] ratings) {
         int n = ratings.length;

@@ -62,7 +62,7 @@ class Solution {
                                 stepCounter++;
                                 return stepCounter;
                             }
-                            System.out.println(newWord);
+                            logger.info(newWord);
                         }
                     }
                     letters[j] = initialChar;

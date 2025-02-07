@@ -5,7 +5,7 @@ package com.vnaidu;
 // weighted graph
 import java.util.Arrays;
 
-public class KruskalMST
+public class KruskalMST extends Base
 {
     // A class to represent a graph edge
     class Edge implements Comparable<Edge>
@@ -126,10 +126,10 @@ public class KruskalMST
 
         // print the contents of result[] to display
         // the built MST
-        System.out.println("Following are the edges in " +
+        logger.info("Following are the edges in " +
                 "the constructed MST");
         for (i = 0; i < e; ++i)
-            System.out.println(result[i].src+" -- " +
+            logger.info(result[i].src+" -- " +
                     result[i].dest+" == " + result[i].weight);
     }
 

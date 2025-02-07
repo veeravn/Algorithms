@@ -1,6 +1,6 @@
 package com.vnaidu;
 
-public class BinaryTreeFindMaxValue {
+public class BinaryTreeFindMaxValue extends Base {
 
     private static BTNode root;
 
@@ -50,9 +50,9 @@ public class BinaryTreeFindMaxValue {
         BinaryTreeFindMaxValue.root.right.right = new BTNode(9);
         BinaryTreeFindMaxValue.root.right.right.left = new BTNode(4);
 
-        System.out.println("Maximum element is " +
+        logger.info("Maximum element is " +
                 BinaryTreeFindMaxValue.findMax(BinaryTreeFindMaxValue.root));
-        System.out.println("Minimum element is " +
+        logger.info("Minimum element is " +
                 BinaryTreeFindMaxValue.findMin(BinaryTreeFindMaxValue.root));
     }
 

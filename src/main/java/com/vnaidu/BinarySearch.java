@@ -3,7 +3,7 @@ package com.vnaidu;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-public class BinarySearch {
+public class BinarySearch extends Base {
 
     public static void main(String[] args) {
         checkAnswer(1, new int[] {1}, true);
@@ -21,7 +21,7 @@ public class BinarySearch {
         final boolean actual = arrayContains(value, array);
         final String status = (actual == expected) ? "ok" : "ERROR";
         final String arrayStr = array == null ? "null" : Arrays.stream(array).boxed().collect(Collectors.toList()).toString();
-        System.out.println(status + ": looking for " + value + " in " + arrayStr + "    expected=" + expected + " actual=" + actual);
+        logger.info(status + ": looking for " + value + " in " + arrayStr + "    expected=" + expected + " actual=" + actual);
     }
 
     /**

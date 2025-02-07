@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class TravelingSalesmanProblem {
+public class TravelingSalesmanProblem extends Base {
 
     public static int tsp(int[][] distanceMatrix) {
         int numberOfCities = distanceMatrix.length;
@@ -41,7 +41,7 @@ public class TravelingSalesmanProblem {
         path.add(0);
         totalDistance += distanceMatrix[currentCity][0];
 
-        System.out.println("Path: " + path);
+        logger.info("Path: " + path);
 
         return totalDistance;
     }
@@ -55,6 +55,6 @@ public class TravelingSalesmanProblem {
         };
 
         int shortestDistance = tsp(distanceMatrix);
-        System.out.println("Shortest Distance: " + shortestDistance);
+        logger.info("Shortest Distance: " + shortestDistance);
     }
 }

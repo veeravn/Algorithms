@@ -1,6 +1,6 @@
 package com.vnaidu;
 
-public class BTNode {
+public class BTNode extends Base {
 
     int data;
     BTNode left, right;

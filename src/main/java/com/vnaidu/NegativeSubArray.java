@@ -71,25 +71,25 @@ class NegativeSubArrayFinder {
         int [] subArray = new int [] {1, -2, 4, -5, 1};
         NegativeSubArrayFinder subArrayFinder = new  NegativeSubArrayFinder(subArray);
         if(9 == subArrayFinder.getNumberOfNegativeSubArrays()){
-            System.out.println("Test passed");
+            logger.info("Test passed");
         }
 
         int [] subArray2 = new int [] {-463,-744,-589,-405,-321,-427,-164,-581,-613,-468,-246,-685,-869,-966,-889,-217,-712,-888,-251,-859,-969,-582,-603,-658,-49,-973,-185,-241,-439,-511,-479,-902,-255,-420,-660,-576,-848,-824,-157,-461,-644,-404,-498,-513,-722,-387,-82,-434,-275,-686,-645,-597,-268,-248,-255,-669,-573,-792,-910,-364,-303,-742,-267,-910,-162,-279,-487,-362,-103,-644,-823,-747,-400,-674,-612,-474,-61,-46,-260,-689,-732,-905,-286,-353,-505,-893,-22,-78,-37,-285,-443,-341,-27,-62,-603,-541,-341,-90,-904,-796};
         subArrayFinder = new  NegativeSubArrayFinder(subArray2);
         if(5050 == subArrayFinder.getNumberOfNegativeSubArrays()) {
-            System.out.println("Test passed");
+            logger.info("Test passed");
         }
 
         int [] subArray3 = null;
         subArrayFinder = new NegativeSubArrayFinder(subArray3);
         if(0 == subArrayFinder.getNumberOfNegativeSubArrays()) {
-            System.out.println("Test passed");
+            logger.info("Test passed");
         }
 
         int [] subArray4 = new int[0];
         subArrayFinder = new NegativeSubArrayFinder(subArray4);
         if(0 == subArrayFinder.getNumberOfNegativeSubArrays()) {
-            System.out.println("Test passed");
+            logger.info("Test passed");
         }
     }
 }

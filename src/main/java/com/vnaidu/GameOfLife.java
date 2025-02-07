@@ -1,6 +1,6 @@
 package com.vnaidu;
 
-public class GameOfLife {
+public class GameOfLife extends Base {
 
     public void gameOfLife(int[][] board) {
         if(board.length == 0){
