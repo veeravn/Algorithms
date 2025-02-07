@@ -1,3 +1,7 @@
+package com.vnaidu;
+
+import com.vnaidu.Base;
+
 import java.io.*;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -29,7 +33,7 @@ Explanation: The endWord "cog" is not in wordList, therefore there is no valid t
 */
 
 // Main class should be named 'Solution'
-class Solution {
+class Solution extends Base {
     
     public static int transformationLength(String begin, String end, List<String> wordList) {
         if(begin.equals(end)) {
