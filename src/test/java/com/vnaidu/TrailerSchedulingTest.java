@@ -1,14 +1,15 @@
 package com.vnaidu;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static com.vnaidu.Base.logger;
+
 
 public class TrailerSchedulingTest {
 
@@ -106,7 +107,7 @@ t = new TrailerScheduling.Trailer();
         t.setArrivalDate(LocalDateTime.of(2021, Month.JANUARY,5,9,12));
         t.setUnloadTime(30);
         trailerList.add(t);
-        Assert.assertEquals("2021-01-05T09:08-06:00[America/Chicago]", TrailerScheduling.getBusiestTime(trailerList));
+        Assertions.assertEquals("2021-01-05T09:08-06:00[America/Chicago]", TrailerScheduling.getBusiestTime(trailerList));
         logger.info(TrailerScheduling.getBusiestTime(trailerList));
     }
 

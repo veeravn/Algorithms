@@ -1,6 +1,6 @@
 package com.vnaidu;
 
-class NegativeSubArrayFinder {
+class NegativeSubArrayFinder extends Base {
     private final int [] inputArray;
 
     public NegativeSubArrayFinder(int [] inputArray) {

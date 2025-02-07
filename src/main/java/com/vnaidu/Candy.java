@@ -6,7 +6,6 @@ import java.util.stream.IntStream;
 public class Candy extends Base {
 
     public int candy(int[] ratings) {
-        public int candy(int[] ratings) {
         int n = ratings.length;
         int[] candies = new int[n];
         Arrays.fill(candies, 1);
