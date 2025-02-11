@@ -17,6 +17,7 @@ public class ValidSudoku {
 
                 int num = board[i][j] - '1'; // Convert '1'-'9' to 0-8
                 int bitMask = 1 << num;         // Create bitmask for the number
+
                 //find the sub-box that the square i,j belongs to
                 int boxIndex = (i / 3) * 3 + j / 3;
 
