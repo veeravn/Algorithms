@@ -6,7 +6,7 @@ package com.vnaidu;
 public class DijkstraShortestPath extends Base {
 
     // A utility function to find the vertex with minimum distance value,
-    // from the set of vertices not yet included in shortest path tree
+    // from the set of vertices not yet included in the shortest path tree
     private static final int V = 9;
 
     private int minDistance(int[] dist, Boolean[] sptSet) {
@@ -24,20 +24,27 @@ public class DijkstraShortestPath extends Base {
     }
 
     // A utility function to print the constructed distance array
-    private void printSolution(int[] dist) {
+    private void printSolution(int[] dist, int src) {
         logger.info("Vertex Distance from Source");
         for (int i = 0; i < V; i++)
-            logger.info(i + " tt " + dist[i]);
+            logger.info(src + " to " + i + ": " + dist[i]);
     }
 
-    // Funtion that implements Dijkstra's single source shortest path
+    // Function that implements Dijkstra's single source shortest path
+    // algorithm for a graph represented using adjacency matrix
+    // representation
+    void dijkstra(int[][] graph) {
+        dijkstra(graph, 0);
+    }
+
+    // Function that implements Dijkstra's single source shortest path
     // algorithm for a graph represented using adjacency matrix
     // representation
     void dijkstra(int[][] graph, int src) {
         int[] dist = new int[V]; // The output array. dist[i] will hold
         // the shortest distance from src to i
 
-        // sptSet[i] will true if vertex i is included in shortest
+        // sptSet[i] will true if vertex i is included in the shortest
         // path tree or shortest distance from src to i is finalized
         Boolean[] sptSet = new Boolean[V];
 
@@ -50,7 +57,7 @@ public class DijkstraShortestPath extends Base {
         // Distance of source vertex from itself is always 0
         dist[src] = 0;
 
-        // Find shortest path for all vertices
+        // Find the shortest path for all vertices
         for (int count = 0; count < V - 1; count++) {
             // Pick the minimum distance vertex from the set of vertices
             // not yet processed. u is always equal to src in first
@@ -73,12 +80,11 @@ public class DijkstraShortestPath extends Base {
         }
 
         // print the constructed distance array
-        printSolution(dist);
+        printSolution(dist, src);
     }
 
     // Driver method
     public static void main(String[] args) {
-        /* Let us create the example graph discussed above */
         int[][] graph = new int[][]{
                 {0, 4, 0, 0, 0, 0, 0, 8, 0},
                 {4, 0, 8, 0, 0, 0, 0, 11, 0},
@@ -90,8 +96,7 @@ public class DijkstraShortestPath extends Base {
                 {8, 11, 0, 0, 0, 0, 1, 0, 7},
                 {0, 0, 2, 0, 0, 0, 6, 7, 0}};
         DijkstraShortestPath t = new DijkstraShortestPath();
-        t.dijkstra(graph, 0);
+        t.dijkstra(graph);
     }
 }
-// This code is contributed by Aakash Hasija
 
