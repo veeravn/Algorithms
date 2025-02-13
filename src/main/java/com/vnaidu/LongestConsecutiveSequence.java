@@ -35,6 +35,6 @@ public class LongestConsecutiveSequence extends Base {
 
     public static void main(String[] args) {
         logger.info(String.valueOf(longestConsecutive(new int[]{100,4,200,1,3,2})));
-        logger.info(String.valueOf(longestConsecutive(new int[]{})));
+        logger.info(String.valueOf(longestConsecutive(new int[]{1,2,3,6,8,2,3,4,4,5,6})));
     }
 }
