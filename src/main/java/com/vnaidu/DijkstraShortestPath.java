@@ -14,20 +14,21 @@ public class DijkstraShortestPath extends Base {
         int min = Integer.MAX_VALUE;
         int minIndex = -1;
 
-        for (int v = 0; v < V; v++)
+        for (int v = 0; v < V; v++) {
             if (!sptSet[v] && dist[v] <= min) {
                 min = dist[v];
                 minIndex = v;
             }
-
+        }
         return minIndex;
     }
 
     // A utility function to print the constructed distance array
     private void printSolution(int[] dist, int src) {
         logger.info("Vertex Distance from Source");
-        for (int i = 0; i < V; i++)
+        for (int i = 0; i < V; i++) {
             logger.info(src + " to " + i + ": " + dist[i]);
+        }
     }
 
     // Function that implements Dijkstra's single source shortest path
