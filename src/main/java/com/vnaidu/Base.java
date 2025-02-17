@@ -1,5 +1,6 @@
 package com.vnaidu;
 
+import java.util.Arrays;
 import java.util.logging.Logger;
 
 public abstract class Base {
@@ -17,5 +18,9 @@ public abstract class Base {
 
     public void logSevere(String message) {
         logger.severe(message);
+    }
+
+    public static String matrixString(int[][] matrix) {
+        return Arrays.deepToString(matrix);
     }
 }
