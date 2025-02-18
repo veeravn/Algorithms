@@ -30,6 +30,30 @@ public class Intervals extends Base {
         return answer.toArray(new int[0][]);
     }
 
+    public  static int[][] insert(int[][] interval, int[] newMeet) {
+        int i=0;
+        int n=interval.length;
+        List<int[]> res = new ArrayList<>();
+
+        while(i<n && newMeet[0]>interval[i][1]){
+            res.add(interval[i]);
+            i++;
+        }
+
+        while(i<n && newMeet[1]>=interval[i][0]){
+            newMeet[0] = Math.min(newMeet[0], interval[i][0]);
+            newMeet[1] = Math.max(newMeet[1], interval[i][1]);
+            i++;
+        }
+        res.add(newMeet);
+
+        while(i<n){
+            res.add(interval[i]);
+            i++;
+        }
+        return res.toArray(new int[res.size()][]);
+    }
+
     public static void main(String[] args) {
         int[][] result = mergeIntervals(new int[][] {{1,3},{2,6},{8,10},{15,18}});
         logger.info(matrixString(result));
