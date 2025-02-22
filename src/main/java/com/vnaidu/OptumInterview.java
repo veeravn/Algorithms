@@ -63,7 +63,7 @@ Input arr[] = {900, 940, 950, 1100, 1500, 1800}, dep[] = {910, 1200, 1120, 1130,
         return minPlatforms;
     }
     public static void main(String[] args) {
-        //logger.info(findLargestNumber(new String[]{"3", "30", "34", "5", "9"}));
+        logger.info(findLargestNumber(new String[]{"3", "30", "34", "5", "9"}));
         
         int[] arrivals = new int[] {900, 940, 950, 1100, 1500, 1800};
         int[] departures = new int[] {910, 1120, 1130, 1200, 1900, 2000};
