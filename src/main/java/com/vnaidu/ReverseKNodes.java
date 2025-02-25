@@ -65,9 +65,10 @@ public class ReverseKNodes extends Base {
         sublistTail.next = current;
 
         return dummy.next;
+    }
 
 
-        public static void main (String[] args)
+    public static void main (String[] args)
     {
     }
 }
