@@ -12,18 +12,13 @@ import java.util.*;
  *   1  3   5  7
  * the outputs will be 1, 3, 2, 5, 7, 6, 4.
  */
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode(int x) { val = x; }
-}
+
 
 public class PostOrderBinaryTreeIteratorImpl implements PostOrderBinaryTreeIterator {
-    private Stack<TreeNode> stack;
-    private TreeNode lastVisited;
+    private Stack<BTNode> stack;
+    private BTNode lastVisited;
 
-    public PostOrderBinaryTreeIteratorImpl(TreeNode root) {
+    public PostOrderBinaryTreeIteratorImpl(BTNode root) {
         stack = new Stack<>();
         lastVisited = null;
         if (root != null) {
@@ -33,7 +28,7 @@ public class PostOrderBinaryTreeIteratorImpl implements PostOrderBinaryTreeItera
     @Override
     public int next() {
         while (hasNext()) {
-            TreeNode curr = stack.peek();
+            BTNode curr = stack.peek();
             // If going down the tree
             if (lastVisited == null || lastVisited.left == curr || lastVisited.right == curr) {
                 if (curr.left != null) {
@@ -43,7 +38,7 @@ public class PostOrderBinaryTreeIteratorImpl implements PostOrderBinaryTreeItera
                 } else {
                     // Leaf node, process it
                     lastVisited = stack.pop();
-                    return lastVisited.val;
+                    return lastVisited.data;
                 }
             }
             // If coming up from left subtree
@@ -52,13 +47,13 @@ public class PostOrderBinaryTreeIteratorImpl implements PostOrderBinaryTreeItera
                     stack.push(curr.right);
                 } else {
                     lastVisited = stack.pop();
-                    return lastVisited.val;
+                    return lastVisited.data;
                 }
             }
             // If coming up from right subtree
             else if (curr.right == lastVisited) {
                 lastVisited = stack.pop();
-                return lastVisited.val;
+                return lastVisited.data;
             }
         }
         throw new IllegalStateException("No more elements");

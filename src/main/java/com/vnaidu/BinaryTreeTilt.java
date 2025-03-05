@@ -1,7 +1,5 @@
 package com.vnaidu;
 
-import java.util.Optional;
-
 public class BinaryTreeTilt extends Base {
 
     int count = 0;
